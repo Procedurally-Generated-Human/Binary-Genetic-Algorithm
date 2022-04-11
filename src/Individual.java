@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Individual {
 
     static final int defaultGeneLength = 64;
-    private byte[] genes = new byte[defaultGeneLength];
+    private final byte[] genes = new byte[defaultGeneLength];
     private int fitness = 0;
 
     public Individual(){
@@ -31,12 +31,12 @@ public class Individual {
         return genes[index];
     }
 
-    public String getData(){
-        String s_genes = Arrays.toString(getGenes()).replace(",", "").replace("[", "").replace("]", "").replace(" ","");
-        return "{fitness: " + fitness + ", genes: " + s_genes + "}";
-    }
-
     public int getFitness() {
         return fitness;
+    }
+
+    public String toString(){
+        String s_genes = Arrays.toString(getGenes()).replace(",", "").replace("[", "").replace("]", "").replace(" ","");
+        return "{fitness: " + fitness + ", genes: " + s_genes + "}";
     }
 }

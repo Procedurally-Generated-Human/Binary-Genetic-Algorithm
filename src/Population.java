@@ -1,8 +1,6 @@
-import java.util.Arrays;
-
 public class Population {
 
-    private Individual[] individuals;
+    private final Individual[] individuals;
 
     public Population(int size){
         individuals = new Individual[size];
@@ -13,10 +11,6 @@ public class Population {
 
     public void saveIndividual(Individual indiv, int index){
         individuals[index] = indiv;
-    }
-
-    public Individual[] getIndividuals(){
-        return individuals;
     }
 
     public Individual getIndividual(int index){
@@ -38,11 +32,10 @@ public class Population {
     }
 
     public String toString(){
-        StringBuilder result = new StringBuilder();
         for(int i=0; i!=individuals.length; i++){
-            result.append(individuals[i].getData()+"\n");
+            System.out.print(individuals[i] + "\n");
         }
-        return result.toString();
+        return null;
     }
 
 
