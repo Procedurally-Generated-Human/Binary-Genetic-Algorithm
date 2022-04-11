@@ -2,7 +2,7 @@ public class Algorithm {
 
     private static final double uniformRate = 0.5;
     private static final double mutationRate = 0.015;
-    private static final int tournamentSize = 5;
+    private static final int tournamentSize = 7;
     //private static final boolean elitism = true;
 
     public static Population evolvePopulation(Population pop){
@@ -26,6 +26,7 @@ public class Algorithm {
                 newIndiv.setGene(indiv2.getGene(i), i);
             }
         }
+        mutate(newIndiv);
         return newIndiv;
     }
 
@@ -41,16 +42,13 @@ public class Algorithm {
 
 
 
-
-
     private static Individual tournamentSelection(Population pop){
         Population tournament = new Population(tournamentSize);
         for(int i=0; i!=tournamentSize; i++){
             int randomId = (int) (Math.random() * pop.size());
             tournament.saveIndividual(pop.getIndividual(randomId), i);
         }
-        Individual fittest = tournament.getFittest();
-        return fittest;
+        return tournament.getFittest();
     }
 
 }
